@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:TestCollectionView"
+             mc:Ignorable="d"
+             Title="please use ToolbarItems ->"
+             x:Class="TestCollectionView.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Span=3" Order="Secondary" Clicked="SetSpan3" />
+        <ToolbarItem Text="Span=4" Order="Secondary" Clicked="SetSpan4" />
+        <ToolbarItem Text="Span=5" Order="Secondary" Clicked="SetSpan5" />
+
+        <ToolbarItem Text="ItemSizingStrategy" Order="Secondary" Clicked="SetItemSizingStrategy" />
+    </ContentPage.ToolbarItems>
+
+    <CollectionView x:Name="Cll" 
+                        ItemsSource="{Binding Floors}"
+                        IsGrouped="True" 
+                        SelectionMode="None">
+
+        <CollectionView.ItemSizingStrategy>
+            <OnPlatform x:TypeArguments="ItemSizingStrategy" iOS="MeasureFirstItem" Android="MeasureAllItems" />
+        </CollectionView.ItemSizingStrategy>
+
+        <CollectionView.EmptyView>
+            <Label Text="没有满足条件的客房，请合理选择过滤参数"
+                        FontSize="18"
+                        VerticalOptions="FillAndExpand"
+                        VerticalTextAlignment="Center"
+                        HorizontalOptions="Fill"
+                        HorizontalTextAlignment="Center" />
+        </CollectionView.EmptyView>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <local:RoomMapCellView BindingContext="{Binding}" HeightRequest="80" />
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate>
+                <local:CollectionViewGroupHeader HeaderText="{Binding Category}" />
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+
+    </CollectionView>
+
+</ContentPage>

@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Icon\Assorted\couple.gif" />
+    <None Remove="Icon\Assorted\group.gif" />
+    <None Remove="Icon\Assorted\hammer.gif" />
+    <None Remove="Icon\Assorted\heart.gif" />
+    <None Remove="Icon\Assorted\lock.gif" />
+    <None Remove="Icon\Assorted\person.gif" />
+    <None Remove="Icon\Assorted\recycle bin full.gif" />
+    <None Remove="Icon\Isometric\clean.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Icon\Assorted\couple.gif" />
+    <EmbeddedResource Include="Icon\Assorted\group.gif" />
+    <EmbeddedResource Include="Icon\Assorted\hammer.gif" />
+    <EmbeddedResource Include="Icon\Assorted\heart.gif" />
+    <EmbeddedResource Include="Icon\Assorted\lock.gif" />
+    <EmbeddedResource Include="Icon\Assorted\person.gif" />
+    <EmbeddedResource Include="Icon\Assorted\recycle bin full.gif" />
+    <EmbeddedResource Include="Icon\Isometric\clean.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.356" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="CollectionViewGroupHeader.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RoomMapCellView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

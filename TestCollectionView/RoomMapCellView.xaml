@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TestCollectionView.RoomMapCellView">
+
+    <StackLayout BackgroundColor="{Binding BgColor}" Padding="4" >
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="{Binding RoomNo}" HorizontalOptions="StartAndExpand" TextColor="{Binding FgColor}" />
+            <Image Source="{Binding Image1}" WidthRequest="16" />
+            <Image Source="{Binding Image2}" WidthRequest="16" />
+        </StackLayout>
+
+        <Label Text="{Binding Content}" TextColor="{Binding FgColor}" LineBreakMode="TailTruncation" />
+        <Label Text="{Binding Footer}" TextColor="{Binding FgColor}" LineBreakMode="TailTruncation" />
+
+    </StackLayout>
+
+</ContentView>
